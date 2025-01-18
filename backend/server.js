@@ -6,7 +6,7 @@ const path = require('path');
 const cors = require('cors');
 
 // Initialize Google Generative AI
-const genAI = new GoogleGenerativeAI("AIzaSyA22Xtq5hLg_m4zIXluJyUwve1BtYgVCrw");
+const genAI = new GoogleGenerativeAI("");
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 // Setup Express server
