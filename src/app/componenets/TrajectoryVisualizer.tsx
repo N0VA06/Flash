@@ -230,7 +230,7 @@ export default function TrajectoryVisualizer() {
         <Card className={`border shadow-xl rounded-2xl overflow-hidden ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'}`}>
           <CardHeader className={`px-8 py-6 border-b ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
             <CardTitle className={`text-2xl font-medium ${darkMode ? 'text-white' : 'text-gray-800'}`}>
-              Flash - Baseball Statcast Extractor
+              Flash - Baseball Statcast Extractor (This does not contain backened to make it work properly load it locally)
             </CardTitle>
           </CardHeader>
 
