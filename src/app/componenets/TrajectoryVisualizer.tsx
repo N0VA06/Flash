@@ -22,7 +22,7 @@ const Plot = dynamic(() => import('react-plotly.js'), { ssr: false })
 export default function TrajectoryVisualizer() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [videoUrl, setVideoUrl] = useState('')
-  const [timestamps, setTimestamps] = useState('')
+  const [setTimestamps] = useState('')
   const [prompt, setPrompt] = useState('')
   const [plotData, setPlotData] = useState<any>(null)
   const [analysisResult, setAnalysisResult] = useState<string | null>(null)
