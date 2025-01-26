@@ -1,5 +1,4 @@
-"use client"
-import { useState, useEffect } from 'react'
+seState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import { Upload, Moon, Sun, Download, Trash2, Eye, EyeOff, Palette } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -16,6 +15,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import axios from "axios"
+
 const Plot = dynamic(() => import('react-plotly.js'), { ssr: false })
 
 export default function TrajectoryVisualizer() {
@@ -32,11 +32,9 @@ export default function TrajectoryVisualizer() {
   const [plotTheme, setPlotTheme] = useState('default')
 
   useEffect(() => {
-    // Check system color scheme
     const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
     setDarkMode(isDark)
     
-    // Listen for system color scheme changes
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
     const handleChange = (e: MediaQueryListEvent) => setDarkMode(e.matches)
     mediaQuery.addEventListener('change', handleChange)
@@ -44,7 +42,6 @@ export default function TrajectoryVisualizer() {
     return () => mediaQuery.removeEventListener('change', handleChange)
   }, [])
 
-  // Apply dark mode to document
   useEffect(() => {
     document.documentElement.classList.toggle('dark', darkMode)
   }, [darkMode])
@@ -58,7 +55,6 @@ export default function TrajectoryVisualizer() {
     if (file && file.type.startsWith('video/')) {
       setSelectedFile(file)
       setError(null)
-      // Create video preview URL
       const previewUrl = URL.createObjectURL(file)
       setVideoPreview(previewUrl)
     } else {
@@ -220,7 +216,7 @@ export default function TrajectoryVisualizer() {
         <Card className={`border shadow-xl rounded-2xl overflow-hidden ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'}`}>
           <CardHeader className={`px-8 py-6 border-b ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
             <CardTitle className={`text-2xl font-medium ${darkMode ? 'text-white' : 'text-gray-800'}`}>
-              Flash - Baseball Statcast Extractor (This does not contain backend to make it work properly load it locally)
+              Flash - Baseball Statcast Extractor
             </CardTitle>
           </CardHeader>
 
@@ -335,15 +331,15 @@ export default function TrajectoryVisualizer() {
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="prompt" className={darkMode ? 'text-gray-300' : 'text-gray-700'}>Analysis Prompt</Label>
-                    <Textarea
-                      id="prompt"
-                      value={prompt}
-                      onChange={(e) => setPrompt(e.target.value)}
-                      placeholder="Describe the analysis you want for the video"
-                      className={`min-h-32 ${darkMode ? 'bg-gray-700 border-gray-600 text-white placeholder:text-gray-400' : 'bg-white border-gray-200'}`}
-                    />
+                <div className="space-y-2"></div>
+                <Label htmlFor="prompt" className={darkMode ? 'text-gray-300' : 'text-gray-700'}>Analysis Prompt</Label>
+                  <Textarea
+                    id="prompt"
+                    value={prompt}
+                    onChange={(e) => setPrompt(e.target.value)}
+                    placeholder="Describe the analysis you want for the video"
+                    className={`min-h-32 ${darkMode ? 'bg-gray-700 border-gray-600 text-white placeholder:text-gray-400' : 'bg-white border-gray-200'}`}
+                  />
                 </div>
 
                 <Button
@@ -456,4 +452,4 @@ export default function TrajectoryVisualizer() {
       </div>
     </div>
   );
-}
+};
