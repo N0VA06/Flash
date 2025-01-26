@@ -1,4 +1,5 @@
-seState, useEffect } from 'react'
+"use client"
+import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import { Upload, Moon, Sun, Download, Trash2, Eye, EyeOff, Palette } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -15,7 +16,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import axios from "axios"
-
 const Plot = dynamic(() => import('react-plotly.js'), { ssr: false })
 
 export default function TrajectoryVisualizer() {
