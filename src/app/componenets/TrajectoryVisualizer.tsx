@@ -22,6 +22,7 @@ export default function TrajectoryVisualizer() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [videoUrl, setVideoUrl] = useState('')
   const [prompt, setPrompt] = useState('')
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   const [plotData, setPlotData] = useState<any>(null)
   const [analysisResult, setAnalysisResult] = useState<string | null>(null)
   const [loading, setLoading] = useState({ file: false, url: false })
@@ -32,9 +33,11 @@ export default function TrajectoryVisualizer() {
   const [plotTheme, setPlotTheme] = useState('default')
 
   useEffect(() => {
+    // Check system color scheme
     const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
     setDarkMode(isDark)
     
+    // Listen for system color scheme changes
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
     const handleChange = (e: MediaQueryListEvent) => setDarkMode(e.matches)
     mediaQuery.addEventListener('change', handleChange)
@@ -42,6 +45,7 @@ export default function TrajectoryVisualizer() {
     return () => mediaQuery.removeEventListener('change', handleChange)
   }, [])
 
+  // Apply dark mode to document
   useEffect(() => {
     document.documentElement.classList.toggle('dark', darkMode)
   }, [darkMode])
@@ -55,6 +59,7 @@ export default function TrajectoryVisualizer() {
     if (file && file.type.startsWith('video/')) {
       setSelectedFile(file)
       setError(null)
+      // Create video preview URL
       const previewUrl = URL.createObjectURL(file)
       setVideoPreview(previewUrl)
     } else {
