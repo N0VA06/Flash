@@ -1,4 +1,3 @@
-// 
 "use client"
 import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
@@ -22,7 +21,6 @@ const Plot = dynamic(() => import('react-plotly.js'), { ssr: false })
 export default function TrajectoryVisualizer() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [videoUrl, setVideoUrl] = useState('')
-  const [timestamps,setTimestamps] = useState('')
   const [prompt, setPrompt] = useState('')
   const [plotData, setPlotData] = useState<any>(null)
   const [analysisResult, setAnalysisResult] = useState<string | null>(null)
@@ -111,7 +109,6 @@ export default function TrajectoryVisualizer() {
 
   const clearUrl = () => {
     setVideoUrl('')
-    setTimestamps('')
     setPrompt('')
     setAnalysisResult(null)
     setError(null)
@@ -223,7 +220,7 @@ export default function TrajectoryVisualizer() {
         <Card className={`border shadow-xl rounded-2xl overflow-hidden ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'}`}>
           <CardHeader className={`px-8 py-6 border-b ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
             <CardTitle className={`text-2xl font-medium ${darkMode ? 'text-white' : 'text-gray-800'}`}>
-              Flash - Baseball Statcast Extractor (This does not contain backened to make it work properly load it locally)
+              Flash - Baseball Statcast Extractor (This does not contain backend to make it work properly load it locally)
             </CardTitle>
           </CardHeader>
 
@@ -338,15 +335,15 @@ export default function TrajectoryVisualizer() {
                   </div>
                 </div>
 
-                <div className="space-y-2"></div>
-                <Label htmlFor="prompt" className={darkMode ? 'text-gray-300' : 'text-gray-700'}>Analysis Prompt</Label>
-                  <Textarea
-                    id="prompt"
-                    value={prompt}
-                    onChange={(e) => setPrompt(e.target.value)}
-                    placeholder="Describe the analysis you want for the video"
-                    className={`min-h-32 ${darkMode ? 'bg-gray-700 border-gray-600 text-white placeholder:text-gray-400' : 'bg-white border-gray-200'}`}
-                  />
+                <div className="space-y-2">
+                  <Label htmlFor="prompt" className={darkMode ? 'text-gray-300' : 'text-gray-700'}>Analysis Prompt</Label>
+                    <Textarea
+                      id="prompt"
+                      value={prompt}
+                      onChange={(e) => setPrompt(e.target.value)}
+                      placeholder="Describe the analysis you want for the video"
+                      className={`min-h-32 ${darkMode ? 'bg-gray-700 border-gray-600 text-white placeholder:text-gray-400' : 'bg-white border-gray-200'}`}
+                    />
                 </div>
 
                 <Button
@@ -459,4 +456,4 @@ export default function TrajectoryVisualizer() {
       </div>
     </div>
   );
-};
+}
