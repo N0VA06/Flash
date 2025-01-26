@@ -2,7 +2,7 @@
 "use client"
 import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
-import { Upload, Link, X, Moon, Sun, Download, Trash2, Eye, EyeOff, Palette } from 'lucide-react'
+import { Upload, Moon, Sun, Download, Trash2, Eye, EyeOff, Palette } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Alert, AlertDescription } from '@/components/ui/alert'
@@ -10,13 +10,6 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Separator } from '@/components/ui/separator'
-import { 
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
 import {
   DropdownMenu,
   DropdownMenuContent,
